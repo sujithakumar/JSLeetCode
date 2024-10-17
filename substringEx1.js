@@ -3,21 +3,29 @@
 // Output: 3
 // Explanation: The answer is "abc", with the length of 3.
 
-var lengthOfLongestSubstring = function(s) {
-    var len = s.length;
-    var arr = [];
-    for(var i=0; i<len; i++){
-        if(i==0){
-            arr.push(s[i]);
-        }else{
-            for(var j=0; j<arr.length; j++){
-                if(s[i] != arr[j]){
-                    arr.push[s[i]];
-                }
+var lengthOfLongestSubstring = function (s) {
+
+    var result = '';
+    var temp = s.split('');
+    var len = temp.length;
+    var temp1 = [];
+
+    for (var i = 0; i < len; i++) {
+
+        if ((temp[i] != temp[i - 1])) {
+            if (!result.includes(temp[i])) {
+                result = result + temp[i];
             }
         }
     }
-    return arr.length;
+
+    return result.length;
+
 };
 
-console.log(lengthOfLongestSubstring("abcabcbb"))
+
+console.log(lengthOfLongestSubstring("abcabcbb"));
+console.log(lengthOfLongestSubstring("abcdefghi"));
+console.log(lengthOfLongestSubstring('bbbbb'));
+console.log(lengthOfLongestSubstring('pwwkew'));
+console.log(lengthOfLongestSubstring('abcooooooabcoooooabcd'));
